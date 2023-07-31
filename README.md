@@ -56,6 +56,8 @@ Create an AKS cluster
 az aks create -g  ThanhLamResourceGroup -n ThanhLam --enable-managed-identity --node-count 3 --enable-addons monitoring --generate-ssh-keys
 
 ```
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/75a237b3-6703-4b61-818d-653660b48d1e)
+
 Connect to AKS cluster
 ```
 az account set --subscription XXXXXXXXXXXXXXXXXX
