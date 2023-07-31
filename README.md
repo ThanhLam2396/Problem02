@@ -182,7 +182,7 @@ Prometheus:
 ![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/90bd5132-0344-4dfd-b77e-d3730a98ec0d)
 
 Grafana:
-![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/99185fe6-1cd1-4482-9aa2-f2a685dc2524)
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/a120294b-c997-4582-8516-8bd1089c8389)
 
 AlertManager:
 ![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/40ca1d1f-254d-43d2-9674-e453a993429a)
