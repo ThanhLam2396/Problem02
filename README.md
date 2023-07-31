@@ -178,6 +178,14 @@ Add host and our service with web browers
 ```
 Let's check on browers
 
+Prometheus:
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/90bd5132-0344-4dfd-b77e-d3730a98ec0d)
+
+Grafana:
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/99185fe6-1cd1-4482-9aa2-f2a685dc2524)
+
+AlertManager:
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/40ca1d1f-254d-43d2-9674-e453a993429a)
 
 
 
@@ -224,6 +232,9 @@ default             service/minio                                               
 default             deployment.apps/minio                                 1/1     1            1           2m7s
 default             replicaset.apps/minio-6cbd95646d                                 1         1         1       2m8s
 ```
+
+Check on browers:
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/3a53702f-af56-4db1-a975-1c619c8e5264)
 
 
 ## Develop a Prometheus exporter that monitors the response time
@@ -383,6 +394,7 @@ thanhlam-exporter-ingress   nginx   thanhlam-exporter.thanhlam.com   20.121.89.6
 
 ```
 Now we can access the thanhlam-exporter.thanhlam.com endpoint in the browser and see the exported metrics in the prometheus format.
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/d3e5e6ff-5729-49b5-bbf7-361769e7e1af)
 
 *** By the way:
 For more information and to draw more informative and beautiful dashboards. I will further configure Ingress-controller metrics and blackbox exporter.
@@ -444,10 +456,16 @@ Update the value to prometheus with helm
 helm upgrade kube-prom-stack prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace -f values.yaml
 ```
 
-Then you go to prometheus in browser access to target panel and check. It will be like this
+Then you go to prometheus in browser access to target panel and check. It will be like this:
+Ingress Metrics and ThanhLam-Exporter(My exporter) 
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/58b54a7c-ee24-4291-8537-6aeefd200a3f)
+Blackbox Exporter:
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/33685c97-fa16-4be4-8b9c-771e80c74974)
 
 ## Build a dashboard based on the metrics just collected.
 After drawing is done, the dashboard will look like this
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/6c3a493b-1482-44eb-a02f-e67cd3eb5301)
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/b1733d5d-db5b-4d81-ba13-808e890be437)
 
 
 ## Build alerts based on metrics
@@ -522,11 +540,38 @@ Update the value to prometheus with helm
 helm upgrade kube-prom-stack prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace -f values.yaml
 ```
 Then you go to prometheus in browser access to alerts panel and check. It will be like this
-
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/e0291b45-4b3d-433a-9c20-45fc35e564bb)
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/36aab9fd-93d2-4d79-af7c-e75f6d23e0a4)
+## SUMMARY
 After fulfilling all the requirements, our system will look like this:
+### Kubernetes Cluster:
+Deployments:
+<img width="1506" alt="image" src="https://github.com/ThanhLam2396/Problem02/assets/39935839/a1e34398-6fde-449c-a240-7cc6e404388f">
+Pods: 
+<img width="1505" alt="image" src="https://github.com/ThanhLam2396/Problem02/assets/39935839/7c179ccc-3b85-4b1b-a3d2-39888892e145">
+Services:
+<img width="1512" alt="image" src="https://github.com/ThanhLam2396/Problem02/assets/39935839/5dc9c5d0-80a9-4673-9090-1e081175cf35">
+Ingress:
+<img width="1510" alt="image" src="https://github.com/ThanhLam2396/Problem02/assets/39935839/c2a37c1c-2773-4b6c-9bfb-f7e055671019">
+
+### Web Applications (Minio):
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/cbe0ae45-3e97-4cc8-b023-fe2ca17bd545)
+
+### Exporter
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/32051b8e-f211-4d55-a991-9b1290c6dec7)
+
+### Prometheus
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/08acc7f3-badc-4026-b385-d79924f008f8)
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/9a2fb8c7-3fdb-416a-ba63-df26bc330426)
+
+### Grafana
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/436cab62-8e07-4904-b312-866041225ea3)
+
+### Alertmanager
+![image](https://github.com/ThanhLam2396/Problem02/assets/39935839/ff7b057d-faf1-4fcb-8f93-d39f9b0e5c82)
 
 
-## SUMMARY:
+## NOTE:
 To be able to access all the resources I have configured above please add host
 ```
 sudo vim /etc/hosts
